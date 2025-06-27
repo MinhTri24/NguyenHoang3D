@@ -2,7 +2,7 @@ export default [
   {
     name: 'plateforme10',
     type: 'glbModel',
-    path: '/models/plateforme10.glb'
+    path: '/models/demo_nh.glb'
   },
   {
     name: 'textureBuildings',

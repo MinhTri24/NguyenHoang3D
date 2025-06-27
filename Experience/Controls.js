@@ -18,8 +18,11 @@ export default class Controls {
   setOrbitControls() {
     this.controls = new OrbitControls(this.camera.orthographicCamera, this.canvas)
     this.controls.enableDamping = true
-    this.controls.enableZoom = true
+    this.controls.enableZoom = false
     this.controls.maxPolarAngle = Math.PI / 2
+    this.controls.maxAzimuthAngle = Math.PI / 4
+    this.controls.minAzimuthAngle = 0
+    this.controls.rotateSpeed = 0.5
     this.controls.listenToKeyEvents( window )
   }
 

@@ -40,29 +40,57 @@ export default class Interests {
   setInterests() {
     this.points = [
       {
-        position: new THREE.Vector3(2.62, 1.2, 0.9),
-        element: document.querySelector('.mcba')
+        position: new THREE.Vector3(-11.6, -0.2, 0.6),
+        element: document.querySelector('.disp1')
       },
       {
-        position: new THREE.Vector3(-3.75, 1.2, 0.25),
-        element: document.querySelector('.mudac')
+        position: new THREE.Vector3(-6.45, -0.5, 0.8),
+        element: document.querySelector('.mcba')  //SSG-2-1
       },
       {
-        position: new THREE.Vector3(-3.75, 1.2, -1.55),
-        element: document.querySelector('.elysee')
+        position: new THREE.Vector3(-5.2, 0.25, 0.8),
+        element: document.querySelector('.mudac')  //SSG-4-1
       },
       {
-        position: new THREE.Vector3(-0.65, 0.17, -1.2),
-        element: document.querySelector('.arcadia')
+        position: new THREE.Vector3(-3.4, -0.2, 0.8),
+        element: document.querySelector('.elysee')  //SSG-7-1
       },
       {
-        position: new THREE.Vector3(3.12, 0.17, 0.41),
-        element: document.querySelector('.nabi')
+        position: new THREE.Vector3(-2.5, 0.5, 0.8),
+        element: document.querySelector('.arcadia')  //ACC-2-1
       },
       {
-        position: new THREE.Vector3(-4.26, 0.17, 0.66),
-        element: document.querySelector('.lumen')
-      }
+        position: new THREE.Vector3(0.085, 0.5, 0.8),
+        element: document.querySelector('.nabi')    //ACC-2-2
+      },
+      {
+        position: new THREE.Vector3(0.25, 1.6, 0.8),
+        element: document.querySelector('.lumen')  //ACC-1-DSG-2
+      },
+      {
+        position: new THREE.Vector3(0.25, -0.2, 0.8),
+        element: document.querySelector('.a1s5d4')    //ACC-1-SSG-5-DSG-4
+      },
+      {
+        position: new THREE.Vector3(2.7, 0.5, 0.8),
+        element: document.querySelector('.acc-2-3')   //ACC-2-3
+      },
+      {
+        position: new THREE.Vector3(3.8, -0.2, 0.8),
+        element: document.querySelector('.point1')  //SSG-7-2
+      },    
+      {
+        position: new THREE.Vector3(5.8, 0.2, 0.8),
+        element: document.querySelector('.ssg-4-2')  //SSG-4-2
+      },
+      {
+        position: new THREE.Vector3(7, -0.5, 0.8),
+        element: document.querySelector('.ssg-2-2')  //SSG-2-2
+      },
+      {
+        position: new THREE.Vector3(12.15, -0.2, 0.6),
+        element: document.querySelector('.disp2')
+      },
     ]
 
     // Debug
@@ -112,12 +140,19 @@ export default class Interests {
   }
 
   showInfos() {
+    const disp1 = document.querySelector('.disp1')
     const mcba = document.querySelector('.mcba')
     const mudac = document.querySelector('.mudac')
     const elysee = document.querySelector('.elysee')
     const arcadia = document.querySelector('.arcadia')
     const nabi = document.querySelector('.nabi')
     const lumen = document.querySelector('.lumen')
+    const a1s5d4 = document.querySelector('.a1s5d4')
+    const acc2_3 = document.querySelector('.acc-2-3')
+    const point1 = document.querySelector('.point1')
+    const ssg4_2 = document.querySelector('.ssg-4-2')
+    const ssg2_2 = document.querySelector('.ssg-2-2')
+    const disp2 = document.querySelector('.disp2')
 
     const closeIcn = document.querySelector('.close')
 
@@ -140,6 +175,28 @@ export default class Interests {
     let infoPanelRightStyle = '0'
 
     const infos = [
+      {
+        'image': '/images/img-mcba.jpg',
+        'logo': '/images/logo-mcba.svg',
+        'title': 'Musée Cantonal des Beaux-Arts Lausanne',
+        'lead': 'Opened in 1841, the Vaud Museum of Fine Arts in Lausanne is one of the oldest Swiss museums exclusively dedicated to art. Now located in Plateforme 10, it presents several temporary exhibitions a year from its collection of 10,000 works.',
+        'description': `Ducros, Gleyre, Steinlen, Vallotton and Soutter: these are some of the Vaudois painters for which the Vaud Museum of Fine Arts (MCBA) is known, nationally and internationally. Their works form a large part of the museum’s collection, currently comprising some 10,000 paintings. <br><br>
+        The MCBA organises several temporary exhibitions every year, each one accompanied with a programme of cultural activities including events, guided tours and workshops for adults and children. Admission is free on the first Saturday of the month.`,
+        'schedule': [
+          'Closed',
+          '10:00 - 18:00',
+          '10:00 - 18:00',
+          '10:00 - 20:00',
+          '10:00 - 18:00',
+          '10:00 - 18:00',
+          '10:00 - 18:00'
+        ],
+        'contact': [
+          '+41 21 316 34 45',
+          'mcba@plateforme10.ch'
+        ],
+        'website': 'https://www.mcba.ch/en/'
+      },
       // Museums
       {
         'image': '/images/img-mcba.jpg',
@@ -272,6 +329,132 @@ export default class Interests {
           'info@cafelumen.ch'
         ],
         'website': 'https://mudac.ch/de/cafe-lumen/'
+      },
+      {
+        'image': '/images/img-lumen.jpg',
+        'logo': '/images/logo-lumen.svg',
+        'title': 'Lumen Café',
+        'lead': `A spontaneous and fast cuisine with authentic artisanal products`,
+        'description': `Le Café Lumen invites you to discover its menu of quick and spontaneous dishes that use artisanal products served simply on a board, in a clay bowl, or nestled between two slices of focaccia. Here you will find the best of the region’s culinary tradition. All our drinks are artisanal with a fine selection of craft cider and beer, wine, and homemade non-alcoholic beverages. Our coffee is freshly roasted. We’re a stop along the region’s greenway, the Voie Verte foot and bicycle path, with takeaway service available.`,
+        'schedule': [
+          '10:00 - 18:00',
+          'Closed',
+          '10:00 - 18:00',
+          '10:00 - 20:00',
+          '10:00 - 18:00',
+          '10:00 - 18:00',
+          '10:00 - 18:00'
+        ],
+        'contact': [
+          '+41 21 311 02 90',
+          'info@cafelumen.ch'
+        ],
+        'website': 'https://mudac.ch/de/cafe-lumen/'
+      },
+      {
+        'image': '/images/img-lumen.jpg',
+        'logo': '/images/logo-lumen.svg',
+        'title': 'Lumen Café',
+        'lead': `A spontaneous and fast cuisine with authentic artisanal products`,
+        'description': `Le Café Lumen invites you to discover its menu of quick and spontaneous dishes that use artisanal products served simply on a board, in a clay bowl, or nestled between two slices of focaccia. Here you will find the best of the region’s culinary tradition. All our drinks are artisanal with a fine selection of craft cider and beer, wine, and homemade non-alcoholic beverages. Our coffee is freshly roasted. We’re a stop along the region’s greenway, the Voie Verte foot and bicycle path, with takeaway service available.`,
+        'schedule': [
+          '10:00 - 18:00',
+          'Closed',
+          '10:00 - 18:00',
+          '10:00 - 20:00',
+          '10:00 - 18:00',
+          '10:00 - 18:00',
+          '10:00 - 18:00'
+        ],
+        'contact': [
+          '+41 21 311 02 90',
+          'info@cafelumen.ch'
+        ],
+        'website': 'https://mudac.ch/de/cafe-lumen/'
+      },
+      {
+        'image': '/images/img-lumen.jpg',
+        'logo': '/images/logo-lumen.svg',
+        'title': 'Lumen Café',
+        'lead': `A spontaneous and fast cuisine with authentic artisanal products`,
+        'description': `Le Café Lumen invites you to discover its menu of quick and spontaneous dishes that use artisanal products served simply on a board, in a clay bowl, or nestled between two slices of focaccia. Here you will find the best of the region’s culinary tradition. All our drinks are artisanal with a fine selection of craft cider and beer, wine, and homemade non-alcoholic beverages. Our coffee is freshly roasted. We’re a stop along the region’s greenway, the Voie Verte foot and bicycle path, with takeaway service available.`,
+        'schedule': [
+          '10:00 - 18:00',
+          'Closed',
+          '10:00 - 18:00',
+          '10:00 - 20:00',
+          '10:00 - 18:00',
+          '10:00 - 18:00',
+          '10:00 - 18:00'
+        ],
+        'contact': [
+          '+41 21 311 02 90',
+          'info@cafelumen.ch'
+        ],
+        'website': 'https://mudac.ch/de/cafe-lumen/'
+      },
+      {
+        'image': '/images/img-lumen.jpg',
+        'logo': '/images/logo-lumen.svg',
+        'title': 'Lumen Café',
+        'lead': `A spontaneous and fast cuisine with authentic artisanal products`,
+        'description': `Le Café Lumen invites you to discover its menu of quick and spontaneous dishes that use artisanal products served simply on a board, in a clay bowl, or nestled between two slices of focaccia. Here you will find the best of the region’s culinary tradition. All our drinks are artisanal with a fine selection of craft cider and beer, wine, and homemade non-alcoholic beverages. Our coffee is freshly roasted. We’re a stop along the region’s greenway, the Voie Verte foot and bicycle path, with takeaway service available.`,
+        'schedule': [
+          '10:00 - 18:00',
+          'Closed',
+          '10:00 - 18:00',
+          '10:00 - 20:00',
+          '10:00 - 18:00',
+          '10:00 - 18:00',
+          '10:00 - 18:00'
+        ],
+        'contact': [
+          '+41 21 311 02 90',
+          'info@cafelumen.ch'
+        ],
+        'website': 'https://mudac.ch/de/cafe-lumen/'
+      },
+      {
+        'image': '/images/img-lumen.jpg',
+        'logo': '/images/logo-lumen.svg',
+        'title': 'Lumen Café',
+        'lead': `A spontaneous and fast cuisine with authentic artisanal products`,
+        'description': `Le Café Lumen invites you to discover its menu of quick and spontaneous dishes that use artisanal products served simply on a board, in a clay bowl, or nestled between two slices of focaccia. Here you will find the best of the region’s culinary tradition. All our drinks are artisanal with a fine selection of craft cider and beer, wine, and homemade non-alcoholic beverages. Our coffee is freshly roasted. We’re a stop along the region’s greenway, the Voie Verte foot and bicycle path, with takeaway service available.`,
+        'schedule': [
+          '10:00 - 18:00',
+          'Closed',
+          '10:00 - 18:00',
+          '10:00 - 20:00',
+          '10:00 - 18:00',
+          '10:00 - 18:00',
+          '10:00 - 18:00'
+        ],
+        'contact': [
+          '+41 21 311 02 90',
+          'info@cafelumen.ch'
+        ],
+        'website': 'https://mudac.ch/de/cafe-lumen/'
+      },
+      {
+        'image': '/images/img-lumen.jpg',
+        'logo': '/images/logo-lumen.svg',
+        'title': 'Lumen Café',
+        'lead': `A spontaneous and fast cuisine with authentic artisanal products`,
+        'description': `Le Café Lumen invites you to discover its menu of quick and spontaneous dishes that use artisanal products served simply on a board, in a clay bowl, or nestled between two slices of focaccia. Here you will find the best of the region’s culinary tradition. All our drinks are artisanal with a fine selection of craft cider and beer, wine, and homemade non-alcoholic beverages. Our coffee is freshly roasted. We’re a stop along the region’s greenway, the Voie Verte foot and bicycle path, with takeaway service available.`,
+        'schedule': [
+          '10:00 - 18:00',
+          'Closed',
+          '10:00 - 18:00',
+          '10:00 - 20:00',
+          '10:00 - 18:00',
+          '10:00 - 18:00',
+          '10:00 - 18:00'
+        ],
+        'contact': [
+          '+41 21 311 02 90',
+          'info@cafelumen.ch'
+        ],
+        'website': 'https://mudac.ch/de/cafe-lumen/'
       }
     ]
 
@@ -281,7 +464,7 @@ export default class Interests {
       infoPanelRightStyle  = '-100%'
     }
 
-    mcba.addEventListener('click', () => {
+    disp1.addEventListener('click', () => {
       this.scrolling.target = 0
       infoPanel.style.right = '0'
       infoPanelImage.src = infos[0].image
@@ -301,7 +484,7 @@ export default class Interests {
       infoPanelWebsite.href = infos[0].website
     });
 
-    mudac.addEventListener('click', () => {
+    mcba.addEventListener('click', () => {
       this.scrolling.target = 0
       infoPanel.style.right = '0'
       infoPanelImage.src = infos[1].image
@@ -321,7 +504,7 @@ export default class Interests {
       infoPanelWebsite.href = infos[1].website
     });
 
-    elysee.addEventListener('click', () => {
+    mudac.addEventListener('click', () => {
       this.scrolling.target = 0
       infoPanel.style.right = '0'
       infoPanelImage.src = infos[2].image
@@ -341,7 +524,7 @@ export default class Interests {
       infoPanelWebsite.href = infos[2].website
     });
 
-    arcadia.addEventListener('click', () => {
+    elysee.addEventListener('click', () => {
       this.scrolling.target = 0
       infoPanel.style.right = '0'
       infoPanelImage.src = infos[3].image
@@ -361,7 +544,7 @@ export default class Interests {
       infoPanelWebsite.href = infos[3].website
     });
 
-    nabi.addEventListener('click', () => {
+    arcadia.addEventListener('click', () => {
       this.scrolling.target = 0
       infoPanel.style.right = '0'
       infoPanelImage.src = infos[4].image
@@ -381,7 +564,7 @@ export default class Interests {
       infoPanelWebsite.href = infos[4].website
     });
 
-    lumen.addEventListener('click', () => {
+    nabi.addEventListener('click', () => {
       this.scrolling.target = 0
       infoPanel.style.right = '0'
       infoPanelImage.src = infos[5].image
@@ -399,6 +582,146 @@ export default class Interests {
       infoPanelPhone.innerHTML = infos[5].contact[0]
       infoPanelEmail.innerHTML = infos[5].contact[1]
       infoPanelWebsite.href = infos[5].website
+    });
+
+    lumen.addEventListener('click', () => {
+      this.scrolling.target = 0
+      infoPanel.style.right = '0'
+      infoPanelImage.src = infos[6].image
+      infoPanelLogo.src = infos[6].logo
+      infoPanelTitle.innerHTML = infos[6].title
+      infoPanelLead.innerHTML = infos[6].lead
+      infoPanelDescription.innerHTML = infos[6].description
+      infoPanelMo.innerHTML = infos[6].schedule[0]
+      infoPanelTu.innerHTML = infos[6].schedule[1]
+      infoPanelWe.innerHTML = infos[6].schedule[2]
+      infoPanelTh.innerHTML = infos[6].schedule[3]
+      infoPanelFr.innerHTML = infos[6].schedule[4]
+      infoPanelSa.innerHTML = infos[6].schedule[5]
+      infoPanelSu.innerHTML = infos[6].schedule[6]
+      infoPanelPhone.innerHTML = infos[6].contact[0]
+      infoPanelEmail.innerHTML = infos[6].contact[1]
+      infoPanelWebsite.href = infos[6].website
+    });
+
+    a1s5d4.addEventListener('click', () => {
+      this.scrolling.target = 0
+      infoPanel.style.right = '0'
+      infoPanelImage.src = infos[7].image
+      infoPanelLogo.src = infos[7].logo
+      infoPanelTitle.innerHTML = infos[7].title
+      infoPanelLead.innerHTML = infos[7].lead
+      infoPanelDescription.innerHTML = infos[7].description
+      infoPanelMo.innerHTML = infos[7].schedule[0]
+      infoPanelTu.innerHTML = infos[7].schedule[1]
+      infoPanelWe.innerHTML = infos[7].schedule[2]
+      infoPanelTh.innerHTML = infos[7].schedule[3]
+      infoPanelFr.innerHTML = infos[7].schedule[4]
+      infoPanelSa.innerHTML = infos[7].schedule[5]
+      infoPanelSu.innerHTML = infos[7].schedule[6]
+      infoPanelPhone.innerHTML = infos[7].contact[0]
+      infoPanelEmail.innerHTML = infos[7].contact[1]
+      infoPanelWebsite.href = infos[7].website
+    });
+
+    acc2_3.addEventListener('click', () => {
+      this.scrolling.target = 0
+      infoPanel.style.right = '0'
+      infoPanelImage.src = infos[8].image
+      infoPanelLogo.src = infos[8].logo
+      infoPanelTitle.innerHTML = infos[8].title
+      infoPanelLead.innerHTML = infos[8].lead
+      infoPanelDescription.innerHTML = infos[8].description
+      infoPanelMo.innerHTML = infos[8].schedule[0]
+      infoPanelTu.innerHTML = infos[8].schedule[1]
+      infoPanelWe.innerHTML = infos[8].schedule[2]
+      infoPanelTh.innerHTML = infos[8].schedule[3]
+      infoPanelFr.innerHTML = infos[8].schedule[4]
+      infoPanelSa.innerHTML = infos[8].schedule[5]
+      infoPanelSu.innerHTML = infos[8].schedule[6]
+      infoPanelPhone.innerHTML = infos[8].contact[0]
+      infoPanelEmail.innerHTML = infos[8].contact[1]
+      infoPanelWebsite.href = infos[8].website
+    });
+
+    point1.addEventListener('click', () => {
+      this.scrolling.target = 0
+      infoPanel.style.right = '0'
+      infoPanelImage.src = infos[9].image
+      infoPanelLogo.src = infos[9].logo
+      infoPanelTitle.innerHTML = infos[9].title
+      infoPanelLead.innerHTML = infos[9].lead
+      infoPanelDescription.innerHTML = infos[9].description
+      infoPanelMo.innerHTML = infos[9].schedule[0]
+      infoPanelTu.innerHTML = infos[9].schedule[1]
+      infoPanelWe.innerHTML = infos[9].schedule[2]
+      infoPanelTh.innerHTML = infos[9].schedule[3]
+      infoPanelFr.innerHTML = infos[9].schedule[4]
+      infoPanelSa.innerHTML = infos[9].schedule[5]
+      infoPanelSu.innerHTML = infos[9].schedule[6]
+      infoPanelPhone.innerHTML = infos[9].contact[0]
+      infoPanelEmail.innerHTML = infos[9].contact[1]
+      infoPanelWebsite.href = infos[9].website
+    });
+
+    ssg4_2.addEventListener('click', () => {
+      this.scrolling.target = 0
+      infoPanel.style.right = '0'
+      infoPanelImage.src = infos[10].image
+      infoPanelLogo.src = infos[10].logo
+      infoPanelTitle.innerHTML = infos[10].title
+      infoPanelLead.innerHTML = infos[10].lead
+      infoPanelDescription.innerHTML = infos[10].description
+      infoPanelMo.innerHTML = infos[10].schedule[0]
+      infoPanelTu.innerHTML = infos[10].schedule[1]
+      infoPanelWe.innerHTML = infos[10].schedule[2]
+      infoPanelTh.innerHTML = infos[10].schedule[3]
+      infoPanelFr.innerHTML = infos[10].schedule[4]
+      infoPanelSa.innerHTML = infos[10].schedule[5]
+      infoPanelSu.innerHTML = infos[10].schedule[6]
+      infoPanelPhone.innerHTML = infos[10].contact[0]
+      infoPanelEmail.innerHTML = infos[10].contact[1]
+      infoPanelWebsite.href = infos[10].website
+    });
+
+    ssg2_2.addEventListener('click', () => {
+      this.scrolling.target = 0
+      infoPanel.style.right = '0'
+      infoPanelImage.src = infos[11].image
+      infoPanelLogo.src = infos[11].logo
+      infoPanelTitle.innerHTML = infos[11].title
+      infoPanelLead.innerHTML = infos[11].lead
+      infoPanelDescription.innerHTML = infos[11].description
+      infoPanelMo.innerHTML = infos[11].schedule[0]
+      infoPanelTu.innerHTML = infos[11].schedule[1]
+      infoPanelWe.innerHTML = infos[11].schedule[2]
+      infoPanelTh.innerHTML = infos[11].schedule[3]
+      infoPanelFr.innerHTML = infos[11].schedule[4]
+      infoPanelSa.innerHTML = infos[11].schedule[5]
+      infoPanelSu.innerHTML = infos[11].schedule[6]
+      infoPanelPhone.innerHTML = infos[11].contact[0]
+      infoPanelEmail.innerHTML = infos[11].contact[1]
+      infoPanelWebsite.href = infos[11].website
+    });
+
+    disp2.addEventListener('click', () => {
+      this.scrolling.target = 0
+      infoPanel.style.right = '0'
+      infoPanelImage.src = infos[12].image
+      infoPanelLogo.src = infos[12].logo
+      infoPanelTitle.innerHTML = infos[12].title
+      infoPanelLead.innerHTML = infos[12].lead
+      infoPanelDescription.innerHTML = infos[12].description
+      infoPanelMo.innerHTML = infos[12].schedule[0]
+      infoPanelTu.innerHTML = infos[12].schedule[1]
+      infoPanelWe.innerHTML = infos[12].schedule[2]
+      infoPanelTh.innerHTML = infos[12].schedule[3]
+      infoPanelFr.innerHTML = infos[12].schedule[4]
+      infoPanelSa.innerHTML = infos[12].schedule[5]
+      infoPanelSu.innerHTML = infos[12].schedule[6]
+      infoPanelPhone.innerHTML = infos[12].contact[0]
+      infoPanelEmail.innerHTML = infos[12].contact[1]
+      infoPanelWebsite.href = infos[12].website
     });
 
     closeIcn.addEventListener('click', () => {
