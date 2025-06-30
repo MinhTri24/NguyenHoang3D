@@ -168,7 +168,7 @@ export default class Interests {
             <tr><th>Tên</th><td>${type.name}</td></tr>
             <tr><th>Ký hiệu</th><td>${type.symbol}</td></tr>
             <tr><th>Số lượng</th><td>${type.quantity}</td></tr>
-            <tr><th>Vị trí</th><td>${type.position}</td></tr>
+            <tr><th>Vị trí</th><td>${type.position.replace(/\n/g, '<br>')}</td></tr>
           </table>
         </div>
       `).join('');
@@ -182,7 +182,7 @@ export default class Interests {
           {
             image: '/images/VWDT-5000.jpg',
             name: 'Cảm biến chuyển bị',
-            symbol: 'DISP',
+            symbol: 'DISP1',
             quantity: 1,
             position: 'Khe hở giữa mố và dầm đầu cầu'
           }
@@ -193,9 +193,9 @@ export default class Interests {
           {
             image: '/images/VWS-2000.jpg',
             name: 'Cảm biến quan trắc biến dạng tĩnh trong vật liệu thép và bê tông',
-            symbol: 'SSG',
+            symbol: 'SSG20 - SSG22',
             quantity: 2,
-            position: 'Tầng 1'
+            position: '-Bụng vòm thép trụ P2 phía hạ lưu \n -Bụng vòm thép trụ P2 phía thượng lưu'
           }
         ],
       },
@@ -204,9 +204,9 @@ export default class Interests {
           {
             image: '/images/VWS-2000.jpg',
             name: 'Cảm biến quan trắc biến dạng tĩnh trong vật liệu thép và bê tông',
-            symbol: 'SSG',
+            symbol: 'SSG24 - SSG25 - SSG28 - SSG29',
             quantity: 4,
-            position: 'Tầng 1'
+            position: '-Chân vòm thép thớ trên trụ P2 phía hạ lưu \n -Chân vòm thép thớ dưới trụ P2 phía hạ lưu \n -Chân vòm thép thớ trên trụ P2 phía thượng lưu \n -Chân vòm thép thớ dưới trụ P2 phía thượng lưu'
           }
         ],
       },
@@ -215,9 +215,9 @@ export default class Interests {
           {
             image: '/images/VWS-2000.jpg',
             name: 'Cảm biến quan trắc biến dạng tĩnh trong vật liệu thép và bê tông',
-            symbol: 'SSG',
+            symbol: 'SSG1 - SSG2 - SSG3 - SSG4 - SSG5 - SSG6 - SSG7',
             quantity: 7,
-            position: 'Tầng 1'
+            position: '-Thớ trên phía cánh dầm ngang hạ lưu L/3 \n -Thớ dưới phía cánh dầm ngang hạ lưu L/3 \n -Thớ trên giữa dầm ngang L/3 \n -Đáy dầm dọc phụ L/3 \n -Thớ dưới giữa dầm ngang L/3 \n -Thớ trên phía cánh dầm ngang thượng lưu L/3 \n -Thớ dưới phía cánh dầm ngang thượng lưu L/3'
           }
         ],
       },
@@ -226,9 +226,9 @@ export default class Interests {
           {
             image: '/images/TE-4030.jpg',
             name: 'Thiết bị đo dao động dây cáp treo',
-            symbol: 'ACC',
+            symbol: 'ACC1 - ACC2',
             quantity: 2,
-            position: 'Tầng 1'
+            position: '-Dây treo 9, phía hạ lưu \n -Dây treo 9, phía thượng lưu'
           }
         ],
       },
@@ -237,9 +237,9 @@ export default class Interests {
           {
             image: '/images/TE-4030.jpg',
             name: 'Thiết bị đo dao động dây cáp treo',
-            symbol: 'ACC',
+            symbol: 'ACC4 - ACC5',
             quantity: 2,
-            position: 'Tầng 1'
+            position: '-Dây treo 17, phía hạ lưu \n -Đỉnh vòm phía hạ lưu'
           }
         ],
       },
@@ -248,16 +248,16 @@ export default class Interests {
           {
             image: '/images/TE-4030.jpg',
             name: 'Thiết bị đo dao động vòm cầu',
-            symbol: 'ACC',
+            symbol: 'ACC8',
             quantity: 1,
-            position: 'Tầng 1'
+            position: 'Đỉnh vòm phía hạ lưu'
           },
           {
             image: '/images/ST-350.jpg',
             name: 'Cảm biến ứng suất động',
-            symbol: 'DSG',
+            symbol: 'DSG5 - DSG6',
             quantity: 2,
-            position: 'Tầng 2'
+            position: '-Đỉnh vòm thép L/2 phía hạ lưu \n -Đỉnh vòm thép L/2 phía thượng lưu'
           }
         ],
       },
@@ -266,23 +266,23 @@ export default class Interests {
           {
             image: '/images/VWS-2000.jpg',
             name: 'Cảm biến quan trắc biến dạng tĩnh trong vật liệu thép và bê tông',
-            symbol: 'SSG',
+            symbol: 'SSG8 - SSG9 - SSG10 - SSG11 - SSG12',
             quantity: 5,
-            position: 'Tầng 1'
+            position: '-Thớ trên phía cánh dầm ngang hạ lưu L/2 \n -Thớ dưới phía cánh dầm ngang hạ lưu L/2 \n -Thớ trên giữa dầm ngang L/2 \n -Thớ trên phía cánh dầm ngang thượng lưu L/3 \n -Thớ dưới phía cánh dầm ngang thượng lưu L/3'
           },
           {
             image: '/images/TE-4030.jpg',
             name: 'Thiết bị đo dao động dầm chủ',
-            symbol: 'ACC',
+            symbol: 'ACC3',
             quantity: 1,
-            position: 'Tầng 1'
+            position: 'Giữa nhịp dầm ngang giữa cầu'
           },
           {
             image: '/images/ST-350.jpg',
             name: 'Cảm biến ứng suất động',
-            symbol: 'DSG',
+            symbol: 'DSG1 - DSG2 - DSG3 - DSG4',
             quantity: 4,
-            position: 'Tầng 2'
+            position: '-Giữa nhịp dầm chủ \n -Giữa nhịp dầm chủ \n -Giữa nhịp dầm dọc phụ \n -Giữa nhịp dầm ngang giữa cầu'
           }
         ],
       },
@@ -291,9 +291,9 @@ export default class Interests {
           {
             image: '/images/TE-4030.jpg',
             name: 'Thiết bị đo dao động dây cáp treo',
-            symbol: 'ACC',
+            symbol: 'ACC6 - ACC7',
             quantity: 2,
-            position: 'Tầng 1'
+            position: '-Dây treo 25, phía hạ lưu \n -Dây treo 25, phía thượng lưu'
           }
         ],
       },
@@ -302,9 +302,9 @@ export default class Interests {
           {
             image: '/images/VWS-2000.jpg',
             name: 'Cảm biến quan trắc biến dạng tĩnh trong vật liệu thép và bê tông',
-            symbol: 'SSG',
+            symbol: 'SSG13 - SSG14 - SSG15 - SSG16 - SSG17 - SSG18 - SSG19',
             quantity: 7,
-            position: 'Tầng 1'
+            position: '-Thớ trên phía cánh dầm ngang hạ lưu 3L/4 \n -Thớ dưới phía cánh dầm ngang hạ lưu 3L/4 \n -Thớ trên giữa dầm ngang 3L/4 \n -Đáy dầm dọc phụ 3L/4 \n -Thớ dưới giữa dầm ngang 3L/4 \n -Thớ trên phía cánh dầm ngang thượng lưu 3L/4 \n -Thớ dưới phía cánh dầm ngang thượng lưu 3L/4'
           },
         ],
       },
@@ -313,9 +313,9 @@ export default class Interests {
           {
             image: '/images/VWS-2000.jpg',
             name: 'Cảm biến quan trắc biến dạng tĩnh trong vật liệu thép và bê tông',
-            symbol: 'SSG',
+            symbol: 'SSG26 - SSG27 - SSG30 - SSG31',
             quantity: 4,
-            position: 'Tầng 1'
+            position: '-Chân vòm thép thớ trên trụ P3 phía hạ lưu \n -Chân vòm thép thớ dưới trụ P3 phía hạ lưu \n -Chân vòm thép thớ trên trụ P3 phía thượng lưu \n -Chân vòm thép thớ dưới trụ P3 phía hạ lưu'
           },
         ],
       },
@@ -324,9 +324,9 @@ export default class Interests {
           {
             image: '/images/VWS-2000.jpg',
             name: 'Cảm biến quan trắc biến dạng tĩnh trong vật liệu thép và bê tông',
-            symbol: 'SSG',
+            symbol: 'SSG21 - SSG23',
             quantity: 2,
-            position: 'Tầng 1'
+            position: '-Bụng vòm thép trụ P3 phía hạ lưu \n -Bụng vòm thép trụ P3 phía thượng lưu'
           },
         ],
       },
@@ -335,7 +335,7 @@ export default class Interests {
           {
             image: '/images/VWDT-5000.jpg',
             name: 'Cảm biến chuyển bị',
-            symbol: 'DISP',
+            symbol: 'DISP2',
             quantity: 1,
             position: 'Khe hở giữa mố và dầm cuối cầu'
           }
