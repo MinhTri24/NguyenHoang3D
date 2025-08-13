@@ -139,6 +139,25 @@ export default class Interests {
     }
   }
 
+  async fetchSensorValuesBatch(symbolsList) {
+    // symbolsList là array các symbol, ví dụ: ['SSG8 - SSG9 - SSG10', 'ACC3', 'DSG1 - DSG2']
+    // Gửi dưới dạng string phân cách comma: 'SSG8 - SSG9 - SSG10,ACC3,DSG1 - DSG2'
+    const symbolsParam = symbolsList.join(',');
+    try {
+      const response = await fetch(`/api/sensors-batch?symbols=${encodeURIComponent(symbolsParam)}`);
+      if (!response.ok) {
+        throw new Error('Lỗi khi lấy dữ liệu');
+      }
+      const data = await response.json();
+      // Giả sử data là object: { "SSG8 - SSG9 - SSG10": ["giá trị1", "giá trị2", "giá trị3"], "ACC3": ["giá trị4"], ... }
+      // Backend nên trả về array cho mỗi symbol để dễ join
+      return data;
+    } catch (error) {
+      console.error('Lỗi fetch dữ liệu:', error);
+      return {}; // Trả về empty object nếu lỗi, để giá trị mặc định 'N/A'
+    }
+  }
+
   showInfos() {
     const disp1 = document.querySelector('.disp1')
     const mcba = document.querySelector('.mcba')
@@ -159,22 +178,6 @@ export default class Interests {
     const infoPanel = document.querySelector('.info-panel')
 
     const infoPanelTypes = document.querySelector('.info-panel-types');
-
-    function renderTypes(types) {
-      return types.map(type => `
-        <div class="info-type-block">
-          <img class="info-type-image" src="${type.image}" alt="">
-          <table class="info-type-table">
-            <tr><th>Tên</th><td>${type.name}</td></tr>
-            <tr><th>Ký hiệu</th><td>${type.symbol}</td></tr>
-            <tr><th>Số lượng</th><td>${type.quantity}</td></tr>
-            <tr><th>Vị trí</th><td>${type.position.replace(/\n/g, '<br>')}</td></tr>
-          </table>
-        </div>
-      `).join('');
-    }
-
-    let infoPanelRightStyle = '0'
 
     const infos = [
       {
@@ -343,89 +346,60 @@ export default class Interests {
       },
     ]
 
+    let infoPanelRightStyle = '0'
+
     if (this.device === 'desktop') {
       infoPanelRightStyle  = '-33%'
     } else {
       infoPanelRightStyle  = '-100%'
     }
 
-    disp1.addEventListener('click', () => {
+    const handleClick = async (index) => {
       this.scrolling.target = 0
       infoPanel.style.right = '0'
-      infoPanelTypes.innerHTML = renderTypes(infos[0].types);
-    });
 
-    mcba.addEventListener('click', () => {
-      this.scrolling.target = 0
-      infoPanel.style.right = '0'
-      infoPanelTypes.innerHTML = renderTypes(infos[1].types);
-    });
+      // Thu thập tất cả symbols từ types trong infos[index]
+      const symbolsList = infos[index].types.map(type => type.symbol);
+      
+      // Fetch 1 lần cho tất cả
+      const valuesData = await this.fetchSensorValuesBatch(symbolsList);
 
-    mudac.addEventListener('click', () => {
-      this.scrolling.target = 0
-      infoPanel.style.right = '0'
-      infoPanelTypes.innerHTML = renderTypes(infos[2].types);
-    });
+      // Render HTML với giá trị từ valuesData
+      const typesHtml = infos[index].types.map((type) => {
+        let value = valuesData[type.symbol] || 'N/A';
+        if (Array.isArray(value)) {
+          value = value.join('; '); // Hiển thị dưới dạng array cách nhau bằng dấu chấm phẩy
+        }
+        return `
+          <div class="info-type-block">
+            <img class="info-type-image" src="${type.image}" alt="">
+            <table class="info-type-table">
+              <tr><th>Tên</th><td>${type.name}</td></tr>
+              <tr><th>Ký hiệu</th><td>${type.symbol}</td></tr>
+              <tr><th>Số lượng</th><td>${type.quantity}</td></tr>
+              <tr><th>Vị trí</th><td>${type.position.replace(/\n/g, '<br>')}</td></tr>
+              <tr><th>Giá trị</th><td>${value}</td></tr>
+            </table>
+          </div>
+        `;
+      }).join('');
 
-    elysee.addEventListener('click', () => {
-      this.scrolling.target = 0
-      infoPanel.style.right = '0'
-      infoPanelTypes.innerHTML = renderTypes(infos[3].types);
-    });
+      infoPanelTypes.innerHTML = typesHtml;
+    };
 
-    arcadia.addEventListener('click', () => {
-      this.scrolling.target = 0
-      infoPanel.style.right = '0'
-      infoPanelTypes.innerHTML = renderTypes(infos[4].types);
-    });
-
-    nabi.addEventListener('click', () => {
-      this.scrolling.target = 0
-      infoPanel.style.right = '0'
-      infoPanelTypes.innerHTML = renderTypes(infos[5].types);
-    });
-
-    lumen.addEventListener('click', () => {
-      this.scrolling.target = 0
-      infoPanel.style.right = '0'
-      infoPanelTypes.innerHTML = renderTypes(infos[6].types);
-    });
-
-    a1s5d4.addEventListener('click', () => {
-      this.scrolling.target = 0
-      infoPanel.style.right = '0'
-      infoPanelTypes.innerHTML = renderTypes(infos[7].types);
-    });
-
-    acc2_3.addEventListener('click', () => {
-      this.scrolling.target = 0
-      infoPanel.style.right = '0'
-      infoPanelTypes.innerHTML = renderTypes(infos[8].types);
-    });
-
-    point1.addEventListener('click', () => {
-      this.scrolling.target = 0
-      infoPanel.style.right = '0'
-      infoPanelTypes.innerHTML = renderTypes(infos[9].types);
-    });
-
-    ssg4_2.addEventListener('click', () => {
-      this.scrolling.target = 0
-      infoPanel.style.right = '0'
-      infoPanelTypes.innerHTML = renderTypes(infos[10].types);
-    });
-
-    ssg2_2.addEventListener('click', () => {
-      this.scrolling.target = 0
-      infoPanel.style.right = '0'
-      infoPanelTypes.innerHTML = renderTypes(infos[11].types);
-    });
-
-    disp2.addEventListener('click', () => {
-      this.scrolling.target = 0
-      infoPanel.style.right = '0'
-      infoPanelTypes.innerHTML = renderTypes(infos[12].types);
-    });
+    disp1.addEventListener('click', () => handleClick(0));
+    mcba.addEventListener('click', () => handleClick(1));
+    mudac.addEventListener('click', () => handleClick(2));
+    elysee.addEventListener('click', () => handleClick(3));
+    arcadia.addEventListener('click', () => handleClick(4));
+    nabi.addEventListener('click', () => handleClick(5));
+    lumen.addEventListener('click', () => handleClick(6));
+    a1s5d4.addEventListener('click', () => handleClick(7));
+    acc2_3.addEventListener('click', () => handleClick(8));
+    point1.addEventListener('click', () => handleClick(9));
+    ssg4_2.addEventListener('click', () => handleClick(10));
+    ssg2_2.addEventListener('click', () => handleClick(11));
+    disp2.addEventListener('click', () => handleClick(12));
 
     closeIcn.addEventListener('click', () => {
       infoPanel.style.right = infoPanelRightStyle
@@ -440,22 +414,6 @@ export default class Interests {
       screenPosition.project(this.camera.orthographicCamera)
 
       point.element.classList.add('visible')
-
-      // this.raycaster.setFromCamera(screenPosition, this.camera.orthographicCamera)
-      // const intersects = this.raycaster.intersectObjects(this.scene.children, true)
-
-      // if(intersects.length === 0) {
-      //   point.element.classList.add('visible')
-      // } else {
-      //   const intersectionDistance = intersects[0].distance
-      //   const pointDistance = point.position.distanceTo(this.camera.orthographicCamera.position)
-
-      //   if(intersectionDistance < pointDistance) {
-      //     point.element.classList.remove('visible')
-      //   } else {
-      //     point.element.classList.add('visible')
-      //   }
-      // }
 
       const translateX = screenPosition.x * this.sizes.width * 0.5
       const translateY = - screenPosition.y * this.sizes.height * 0.5
